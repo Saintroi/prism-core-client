@@ -162,10 +162,9 @@ function EditUser(props) {
 
   function toggleCreate(){
     setCreateVisible(!createVisible)
-  };
+  }
 
   useEffect(() => {
-    console.log("edit");
     document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
@@ -187,7 +186,7 @@ function EditUser(props) {
 
   return(
     <React.Fragment>
-      <DotMenu click={toggleCreate} move={createVisible}></DotMenu>
+      <DotMenu click={toggleCreate}></DotMenu>
       <FormWrapper ref={setWrapperRef} show={createVisible}>
         <CloseButton click={toggleCreate}></CloseButton> 
         <form

@@ -146,8 +146,6 @@ function CreateUser(props) {
   }
 
   useEffect(() => {
-    console.log("create")
-
     document.addEventListener('mousedown', handleClickOutside);
 
     return () => {

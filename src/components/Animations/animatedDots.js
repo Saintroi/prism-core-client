@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState} from 'react';
 import styled from 'styled-components';
 
 // Styles
@@ -7,78 +7,68 @@ const Wrapper = styled.div`
     width: 50%;
     z-index: 9;
     justify-self: center;
-
-    &:hover {
-        transform: translate(0,0)
-
-    }
+    justify-content: center;
 `
 
-const Circle = styled.div`
+const TopCircle = styled.div`
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    border-width:  1px;
-    border-color: #00467E;
     background-color: #00467E;
     transition: transform 300ms;
     margin: 2px;
+    top: 0;
 
-    ${Wrapper} :hover & {
-        transform: rotate(90deg)
+    ${Wrapper}:hover & {
+        transform: translate(-10px, 10px);
     }
-    
-    .top{
-        top: 0px
-        transform: ${props => props.move ? "translate(-8, 8)" : ""};
-
-        ${Wrapper} :hover & {
-            transform: rotate(90deg)
-        }
-    }
-
-    .middle {
-        top: 6px
-    }
-
-    .bottom {
-        top: 12px
-        transform: ${props => props.move ? "translate(8, 8)" : ""};
-        
-        ${Wrapper} :hover & {
-            transform: rotate(90deg)
-        }
-    }
-
 `;
+
+const MiddleCircle = styled.div`
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #00467E;
+    transition: transform 300ms;
+    margin: 2px;
+    top: 6;
+`;
+
+const BottomCircle = styled.div`
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #00467E;
+    transition: transform 300ms;
+    margin: 2px;
+    top: 12;
+
+    ${Wrapper}:hover & {
+        transform: translate(10px, -10px);
+    }
+`;
+
 
 
 
 // JSX
 
-class DotMenu extends Component {
-    constructor (props) {
-        super(props)
-        this.click = props.click;
-      }
+function DotMenu(props) {
 
-    state = {
-        move: this.props.move
+    const [move, setMove] = useState(props.move);
+
+
+    function handleClick() {
+        setMove(!move);
+        props.click();
     }
 
-    handleClick = () => {
-        this.setState({move:!this.state.move})
-        this.click();
-    }
-
-    render() {
       return (
-        <Wrapper onClick={this.handleClick} >
-            <Circle className = "top" move={this.props.move}></Circle>
-            <Circle className = "middle" move={this.props.move}></Circle>
-            <Circle className = "bottom" move={this.props.move}></Circle>
+        <Wrapper onClick={handleClick}>
+            <TopCircle></TopCircle>
+            <MiddleCircle></MiddleCircle>
+            <BottomCircle></BottomCircle>
         </Wrapper>
       )
-    }
   }
   export default DotMenu

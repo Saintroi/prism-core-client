@@ -152,7 +152,6 @@ function ListUser(props) {
   }
 
   useEffect(() => {
-    console.log("list")
     !dat.loading && search.current.focus();
   });
 
