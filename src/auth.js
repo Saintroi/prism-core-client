@@ -54,7 +54,7 @@ class Auth {
       });
     }) 
     .catch(err => {
-      console.log(err);
+      console.err(err);
       this.signOut();
     });
   }

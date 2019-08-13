@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -37,19 +37,16 @@ const Bar = styled.div`
 
 
 
-class CloseButton extends Component {
-    constructor (props) {
-        super(props)
-        this.click = props.click;
-      }
+function CloseButton(props) {
 
-    render() {
+    const [click] = useState(props.click)
+
       return (
-        <Wrapper onClick={this.click}>
+        <Wrapper onClick={click}>
             <Bar className="horizontal"></Bar>
             <Bar className="vertical"></Bar>
         </Wrapper>
       )
     }
-  }
+  
   export default CloseButton

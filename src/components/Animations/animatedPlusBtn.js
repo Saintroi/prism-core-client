@@ -13,7 +13,9 @@ const Circle = styled.div`
     transform: ${props => props.move ? "rotate(45deg)" : ""};
     transition: transform 300ms;
 
-
+    &:hover {
+        background-color: #00467E;
+    }
 `;
 
 const Bar = styled.div`
@@ -22,24 +24,22 @@ const Bar = styled.div`
     background-color: #00467E;
 
     &.horizontal {
-        width: 20px;
+        width: 80%;
         height: 3px;
-        top: 45%;
-        left: 50%;
-        margin-left: -10px;
-        top: 50%;
-        margin-top: -2.5px;
+        top: 42%;
+        left: 10%;
     }
 
     &.vertical {
         width: 3px;
-        height: 20px;
-        left: 50%;
-        margin-left: -2.5px;
-        top: 50%;
-        margin-top: -10px;
+        height: 80%;
+        left: 43%;
+        top: 10%;
     }
 
+    ${Circle}:hover & {
+        background-color: #F4F4F4;
+    }
 
 `;
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useMutation } from "react-apollo-hooks";
+import { useMutation } from "@apollo/react-hooks";
 import styled from 'styled-components';
 import DotMenu from './Animations/animatedDots';
 import CloseButton from './Static/staticX';

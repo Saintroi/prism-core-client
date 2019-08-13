@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
-import { useQuery } from "react-apollo-hooks";
+import { useQuery } from "@apollo/react-hooks";
 import auth from '../auth';
 import styled from 'styled-components';
 import LoadingDots from './Animations/animatedLoading';
@@ -114,9 +114,14 @@ const HeadWrap = styled.div`
 const SearchBar = styled.input`
   margin: 5px;
   margin-top: 8px;
-  border-radius: 0px;
+  border-radius: 25px;
+  border-width: 0px;
   width: 80%;
-  text-indent 5px;
+  text-indent 10px;
+
+  &:focus{
+    outline: none;
+  }
 `;
 
 
@@ -130,7 +135,7 @@ function compare(a,b) {
   return 0;
 }
 
-function ListUser(props) {
+function ListUser() {
 
   const [searchQuery, setSearchQuery] = useState('');
   const search = React.createRef();
@@ -175,7 +180,7 @@ function ListUser(props) {
       <React.Fragment>
         <CreateUser queryRefresh = {() => dat.refetch()}></CreateUser>
       <HeadWrap>
-        <SearchBar onChange={handleSearchChange} placeholder=" Search by name or cell #..." ref={search}/>
+        <SearchBar onChange={handleSearchChange} placeholder="Search by name or cell #..." ref={search}/>
       </HeadWrap>
       <UserCols>
 

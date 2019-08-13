@@ -111,6 +111,8 @@ const LogButton = styled.button`
   margin-bottom: 10px;
   margin-left: 5px;
   margin-top: auto;
+  border-radius: 25px;
+
 
   @media screen and (max-width: 768px) {
     display: inline-flex

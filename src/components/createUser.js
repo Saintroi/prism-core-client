@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useMutation } from "react-apollo-hooks";
+import { useMutation } from "@apollo/react-hooks";
 import styled from 'styled-components';
 import PlusButton from './Animations/animatedPlusBtn';
 import auth from '../auth';
@@ -53,7 +53,7 @@ const FormWrapper = styled.div`
     z-index: 11;
 
     transition: transform 300ms;
-    transform: ${props => props.move ? "translate(-24vw, -5px)" : ""};
+    transform: ${props => props.move ? "translate(-24.5vw, -5px)" : ""};
   
 `;
 
@@ -134,6 +134,8 @@ function CreateUser(props) {
 
   const [wrapperRef, setWrapperRef] = useState(null)
 
+  const [buttonRef] = useState(React.useRef(null));
+
 
   function toggleCreate() {
     setCreateVisible(!createVisible);
@@ -142,6 +144,7 @@ function CreateUser(props) {
   function handleClickOutside(event) {
     if (wrapperRef && !wrapperRef.contains(event.target)) {
       setCreateVisible(false);
+      buttonRef.current.move = createVisible
     }
   }
 
@@ -155,22 +158,12 @@ function CreateUser(props) {
 
   const [createUser, {loading, error }] = useMutation(ADD_USER);
 
-  /*const [first, setFirst] = useState("");
-  const [last, setLast] = useState("");
-  const [email, setEmail] = useState("");
-  const [title, setTitle] = useState("");
-  const [admin, setAdmin] = useState("");
-  const [location, setLocation] = useState("");
-  const [cell, setCell] = useState("");
-  const [office, setOffice] = useState("");
-  const [type, setType] = useState("");*/
-
-   let first, last, email, title, admin, location, cell, office, type = {};
+  let first, last, email, title, admin, location, cell, office, type = {};
 
 
   return(
     <React.Fragment>
-      {auth.isAdmin() && <OpenBtn move={createVisible}><PlusButton click={toggleCreate} move={createVisible}></PlusButton></OpenBtn>}
+      {auth.isAdmin() && <OpenBtn move={createVisible}><PlusButton click={toggleCreate} move={createVisible} ref={buttonRef}></PlusButton></OpenBtn>}
       <FormWrapper ref={setWrapperRef} show={createVisible}>
         {
         (auth.isAdmin()) ? 
