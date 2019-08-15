@@ -44,7 +44,7 @@ const FormWrapper = styled.div`
   left: 70vw;
   width: 30vw;
   height: 100%;
-  background-color: white;
+  background-color: ${(props) => props.theme.altBackgroundColor};;
   display: flex:
   flex-direction: column;
   justify-content: center;
@@ -90,6 +90,7 @@ const ItemLabel = styled.label`
 const SelectInput = styled.select`
   display: inline-block;
   align-self: flex-end;
+  background: ${(props) => props.theme.altBackgroundColor};
   margin-left: auto;
   padding: 15px;
   flex: 1 1 50%;
@@ -110,16 +111,16 @@ const CheckInput = styled.input`
 `;
 
 const AddBtn = styled.button`
-  background: #00467E;
-  color: white;
+  background: ${(props) => props.theme.accentColor};;
+  color: ${(props) => props.theme.altBackgroundColor};;
   text-transform: uppercase;
   text-align: center;
-  font-size: 2vmin;
+  font-size: 1.5vmin;
   padding: 8px 16px;
   align-self: center;
   max-width: 70%;
   max-height: 40px;
-  border-radius: 2px;
+  border-radius: 25px;
   margin-top: 10%;
 
 `;
@@ -129,12 +130,12 @@ const DeleteBtn = styled.button`
   color: white;
   text-transform: uppercase;
   text-align: center;
-  font-size: 2vmin;
+  font-size: 1.5vmin;
   padding: 8px 16px;
   align-self: center;
   max-width: 70%;
   max-height: 40px;
-  border-radius: 2px;
+  border-radius: 25px;
   margin-top: 10%;
   margin-bottom: auto;
 `;

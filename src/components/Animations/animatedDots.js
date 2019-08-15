@@ -14,7 +14,7 @@ const TopCircle = styled.div`
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: #00467E;
+    background-color: ${(props) => props.theme.accentColor};
     transition: transform 300ms;
     margin: 2px;
     top: 0;
@@ -28,7 +28,7 @@ const MiddleCircle = styled.div`
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: #00467E;
+    background-color: ${(props) => props.theme.accentColor};
     transition: transform 300ms;
     margin: 2px;
     top: 6;
@@ -38,7 +38,7 @@ const BottomCircle = styled.div`
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: #00467E;
+    background-color: ${(props) => props.theme.accentColor};
     transition: transform 300ms;
     margin: 2px;
     top: 12;

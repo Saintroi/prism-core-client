@@ -4,15 +4,22 @@ import Nav from './components/nav';
 import ListUser from './components/listUser';
 import Callback from './components/callback';
 import ErrorBoundary from './components/errorBoundary';
-import './App.css';
-import auth from './auth'
 import GuardedRoute from './components/guardedRoute';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
+import auth from './auth'
+import './App.css';
 
 // Styles  
-
+const theme = {
+  backgroundColor: '#F4F4F4',
+  altBackgroundColor: 'white',
+  accentColor: '#00467E',
+  altAccentColor: '#559FD3',
+  textColor: 'black',
+  altTextColor: '#8298A3' 
+}
 const Grid = styled.div`
-  background-color: #F4F4F4
+  background-color: ${(props) => props.theme.backgroundColor};
   display: grid;
   grid-template-areas:
     "nav head"
@@ -64,11 +71,13 @@ function App(props) {
 
   return (
     <ErrorBoundary>
-      <Grid >
-      <Nav />
-      <GuardedRoute exact path='/' component={ListUser}></GuardedRoute>
-      <Route exact path='/callback' component={Callback} />
-      </Grid>
+      <ThemeProvider theme={theme}>
+        <Grid >
+        <Nav />
+        <GuardedRoute exact path='/' component={ListUser}></GuardedRoute>
+        <Route exact path='/callback' component={Callback} />
+        </Grid>
+      </ThemeProvider>
     </ErrorBoundary>
   );
 }

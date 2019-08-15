@@ -10,7 +10,7 @@ import logo from '../img/PrismLogo.png';
 const NavWrap = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: ${(props) => props.theme.altBackgroundColor};;
   margin: 0;
   padding: 0;
   width: 150px;
@@ -58,9 +58,9 @@ const NavLink = styled.li`
 
   &:hover {
     text-decoration: none;
-    border-color: #00467E;
+    border-color: ${(props) => props.theme.accentColor};;
     border-width: 0px 0px 0px 3px;
-    background-color: #559FD3
+    background-color: ${(props) => props.theme.altAccentColor};
 
   }
 
@@ -74,9 +74,9 @@ const NavLink = styled.li`
 
     &:hover {
       text-decoration: none;
-      border-color: #00467E;
+      border-color: ${(props) => props.theme.accentColor};;
       border-width: 3px 0px 0px 0px;
-      background-color: #559FD3
+      background-color: ${(props) => props.theme.altAccentColor};
   
     }
   }
@@ -86,7 +86,7 @@ const StyledLink = styled(Link)`
   text-transform: uppercase;
   font-family: Helvetica, Arial, PT Sans Narrow, Arial Narrow, Arial, Helvetica, sans-serif;
   font-size: 1.5vmin;
-  color: #00467E;
+  color: ${(props) => props.theme.accentColor};;
   width: 100%;
   height: 100%;
 
@@ -103,10 +103,10 @@ const StyledLink = styled(Link)`
 
 const LogButton = styled.button`
   background: #00467E;
-  color: white;
+  color: ${(props) => props.theme.altBackgroundColor};;
   width: 90%;
   height: auto;
-  font-size: 2vmin;
+  font-size: 1.5vmin;
   text-transform: uppercase;
   margin-bottom: 10px;
   margin-left: 5px;

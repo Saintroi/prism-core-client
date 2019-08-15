@@ -33,7 +33,7 @@ const FormWrapper = styled.div`
   left: 70vw;
   width: 30vw;
   height: 100%;
-  background-color: white;
+  background-color: ${(props) => props.theme.altBackgroundColor};;
   display: flex:
   flex-direction: column;
   justify-content: center;
@@ -110,19 +110,18 @@ const CheckInput = styled.input`
 `;
 
 const AddBtn = styled.button`
-  background: #00467E;
-  color: white;
+  background: ${(props) => props.theme.accentColor};;
+  color: ${(props) => props.theme.altBackgroundColor};;
   text-transform: uppercase;
   text-align: center;
-  font-size: 2vmin;
-  padding: 8px 16px;
+  font-size: 1.5vmin;
+  padding: 8px;
   align-self: center;
-  max-width: 70%;
-  max-height: 40px;
+  width: 30%;
+  height: 40px;
   border-radius: 2px;
   margin-left: 30%;
-  margin-top: 10%;
-
+  margin-top: 15%;
 `;
 
 //JSX

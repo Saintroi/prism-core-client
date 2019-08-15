@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 const Bar = styled.div`
     margin: 0 auto;
     position: absolute;
-    background-color: #00467E;
+    background-color: ${(props) => props.theme.accentColor};;
 
     &.horizontal {
         width: 20px;
@@ -39,10 +39,8 @@ const Bar = styled.div`
 
 function CloseButton(props) {
 
-    const [click] = useState(props.click)
-
       return (
-        <Wrapper onClick={click}>
+        <Wrapper onClick={props.click}>
             <Bar className="horizontal"></Bar>
             <Bar className="vertical"></Bar>
         </Wrapper>

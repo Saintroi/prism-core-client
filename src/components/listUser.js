@@ -42,7 +42,7 @@ const CURRENT_USER = gql`
 // Styles 
 
 const UserHeader = styled.div`
-  color: #8298A3;
+  color: ${(props) => props.theme.altTextColor};
   display: grid;
   grid-template-columns: 2fr 3fr 2fr 2fr 2fr 1fr;
   grid-template-rows: 100%;
@@ -74,8 +74,8 @@ const UserCols = styled.div`
 `;
 
 const UserRow = styled.div`
-  color: black;
-  background-color: white;
+  color: ${(props) => props.theme.textColor};;
+  background-color: ${(props) => props.theme.altBackgroundColor};;
   border-radius: 25px;
   text-align: center;
   align-items: center;
@@ -92,7 +92,7 @@ const UserRow = styled.div`
   }
 
   &:hover {
-    background-color: #559FD3;
+    background-color: ${(props) => props.theme.altAccentColor};;
   }
 
 `;

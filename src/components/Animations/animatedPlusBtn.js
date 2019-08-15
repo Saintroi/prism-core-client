@@ -7,21 +7,21 @@ const Circle = styled.div`
     border-radius: 50%;
     border-style: solid;
     border-width: 1px;
-    border-color: #00467E;
+    border-color: ${(props) => props.theme.accentColor}
     background-color: transparent;
     position: absolute;
     transform: ${props => props.move ? "rotate(45deg)" : ""};
     transition: transform 300ms;
 
     &:hover {
-        background-color: #00467E;
+        background-color: ${(props) => props.theme.accentColor};
     }
 `;
 
 const Bar = styled.div`
     margin: 0 auto;
     position: absolute;
-    background-color: #00467E;
+    background-color: ${(props) => props.theme.accentColor};
 
     &.horizontal {
         width: 80%;
@@ -38,7 +38,7 @@ const Bar = styled.div`
     }
 
     ${Circle}:hover & {
-        background-color: #F4F4F4;
+        background-color: ${(props) => props.theme.backgroundColor};
     }
 
 `;

@@ -11,7 +11,7 @@ const DotWrapper = styled.div`
   align-items: flex-end;
 `;
 const Dot = styled.div`
-  background-color: black;
+  background-color: ${(props) => props.theme.accentColor};
   border-radius: 50%;
   width: 10px;
   height: 10px;

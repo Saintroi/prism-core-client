@@ -1,35 +1,64 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import {withRouter} from 'react-router-dom';
-import loading from '../img/loading.svg';
+import styled from 'styled-components';
 import auth from '../auth';
 
-class Login extends Component {
+// Styles
 
-  async componentDidMount() {
-    await auth.handleAuthentication();
-    this.props.history.replace('/');
-  }
+const LoginBox = styled.div`
+  height: 20vh;
+  width: 20vw;
+  background-color: white;
+  border-color: black;
+  border-width: 5px;
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content; center;
+  padding-top: 20px;
+`
 
-  render() {
-    const style = {
-      position: 'absolute',
-      display: 'flex',
-      justifyContent: 'center',
-      height: '100vh',
-      width: '100vw',
-      top: 0,
-      bottom: 0,
-      left: 0,
-      right: 0,
-      backgroundColor: 'white',
-    }
+const TextInput = styled.input`
+  display: inline-block;
+  padding: 15px;
+  width: 70%;
+  height: 40px;
+  margin: 8px;
+  align-self: center;
 
-    return (
-      <div style={style}>
-        <img src={loading} alt="loading"/>
-      </div>
-    );
-  }
+`;
+
+const LogBtn = styled.button`
+  background: #00467E;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.5vmin;
+  align-self: center;
+  margin-top: 10%;
+  width: 30%;
+  height: 30px;
+  border-radius: 25px;
+
+`;
+
+
+
+
+//JSX
+
+function Login()  {
+
+
+  return (
+    <LoginBox>
+      <TextInput type="text" required placeholder='Email'></TextInput>
+      <TextInput type="text" required placeholder='Password'></TextInput>
+      <LogBtn>Login</LogBtn>
+    </LoginBox>
+  );
 }
+
 
 export default withRouter(Login);
