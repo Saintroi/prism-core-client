@@ -119,7 +119,7 @@ const AddBtn = styled.button`
   align-self: center;
   width: 30%;
   height: 40px;
-  border-radius: 2px;
+  border-radius: 25px;
   margin-left: 30%;
   margin-top: 15%;
 `;
